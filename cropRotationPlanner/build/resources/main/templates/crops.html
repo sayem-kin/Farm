@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Crop Rotation System</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+  <div class="row">
+    <h1>Crop Lists</h1>
+  </div>
+  <table class="table table-striped table-bordered">
+    <thead class="table-dark">
+    <tr>
+      <th> Crop Name</th>
+      <th> Growth Requirements</th>
+      <th> Disease Susceptibility</th>
+      <th> Field Name</th>
+      <th> Location</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr th:each = "crop: ${crops}">
+          <td th:text = "${crop.cropName}"> </td>
+          <td th:text = "${crop.growthRequirements}"> </td>
+          <td th:text = "${crop.diseaseSusceptibility}"> </td>
+          <td th:text = "${crop.fieldName}"> </td>
+          <td th:text = "${crop.location}"> </td>
+        </tr>
+    </tbody>
+  </table>
+
+</div>
+
+
+</body>
+</html>

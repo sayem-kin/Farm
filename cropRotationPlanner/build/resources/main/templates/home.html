@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Include necessary CSS and JavaScript -->
+</head>
+<body>
+<h1>Insert New Crop</h1>
+
+
+<!-- Insert Form -->
+<form th:action="@{/save}"  method="post">
+    <div class="form-group">
+        <label for="cropName">Crop Name:</label>
+        <input type="text" id="cropName" name="cropName" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="growthRequirements">Growth Requirements:</label>
+        <input type="text" id="growthRequirements" name="growthRequirements"  class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="diseaseSusceptibility">Disease Susceptibility:</label>
+        <input type="text" id="diseaseSusceptibility" name="diseaseSusceptibility" class="form-control">
+    </div>
+    <!--<div class="form-group">
+        <label for="fieldName">Field Name:</label>
+        <input type="text" id="fieldName" name="fieldName" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" class="form-control">
+    </div>-->
+    <div class="form-group">
+        <label for="fieldName">Select Fields:</label>
+        <select class="form-control" id="fieldName" name="fields">
+            <option th:each="field : ${allFields}" th:value="${field.id}" th:text="${field.fieldName}"></option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Insert Crop</button>
+</form>
+
+<select>
+    <option th:each="prevCrop : ${previousCrops}"  th:text="${prevCrop.cropName}"></option>
+</select>
+</body>
+</html>
